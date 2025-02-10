@@ -1,12 +1,18 @@
-"use client"
+"use client";
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { useState } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   BarChart2,
   Building2,
@@ -20,7 +26,7 @@ import {
   Users2,
   Video,
   Wallet,
-} from "lucide-react"
+} from "lucide-react";
 
 const sidebarItems = [
   {
@@ -83,23 +89,30 @@ const sidebarItems = [
       },
     ],
   },
-]
+];
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export default function Sidebar({ className }: SidebarProps) {
-  const [open, setOpen] = useState(false)
-  const pathname = usePathname()
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <>
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
-          <Button variant="outline" size="icon" className="lg:hidden fixed left-4 top-4 z-40">
+          <Button
+            variant="outline"
+            size="icon"
+            className="lg:hidden fixed left-4 top-4 z-40"
+          >
             <Menu className="h-4 w-4" />
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="w-64 p-0">
+          <SheetHeader className="sr-only">
+            <SheetTitle>Navigation Menu</SheetTitle>
+          </SheetHeader>
           <SidebarContent />
         </SheetContent>
       </Sheet>
@@ -107,7 +120,7 @@ export default function Sidebar({ className }: SidebarProps) {
         <SidebarContent />
       </aside>
     </>
-  )
+  );
 
   function SidebarContent() {
     return (
@@ -121,7 +134,9 @@ export default function Sidebar({ className }: SidebarProps) {
           <nav className="grid gap-2 px-4">
             {sidebarItems.map((group, i) => (
               <div key={i} className="grid gap-2">
-                <h3 className="text-xs font-semibold text-muted-foreground px-2">{group.title}</h3>
+                <h3 className="text-xs font-semibold text-muted-foreground px-2">
+                  {group.title}
+                </h3>
                 {group.items.map((item, j) => (
                   <Button
                     key={j}
@@ -156,7 +171,6 @@ export default function Sidebar({ className }: SidebarProps) {
           </nav>
         </div>
       </div>
-    )
+    );
   }
 }
-
