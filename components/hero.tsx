@@ -28,7 +28,7 @@ export default function Hero() {
               Spend Your Money with
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                 {" "}
-                Spend In Piece
+                Spend In Peace
               </span>
             </h1>
           </motion.div>
@@ -39,8 +39,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-gray-400 text-xl mb-8 max-w-2xl mx-auto"
           >
-            Upload your research papers and let our AI transform them into engaging presentations, podcasts, and visual
-            content.
+          Effortlessly manage your finances with Spend in Peace,Add your spendings, set limits, track expenses, and let AI guide you with smart financial advice
           </motion.p>
 
           <motion.div
@@ -51,11 +50,11 @@ export default function Hero() {
           >
             <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8">
               <FileText className="mr-2 h-5 w-5" />
-              Upload Paper
+              Our Mission
             </Button>
             <Button size="lg" variant="outline" className="text-white border-purple-500 hover:bg-purple-500/20">
               <Sparkles className="mr-2 h-5 w-5" />
-              See Examples
+              How It Works
             </Button>
           </motion.div>
         </div>

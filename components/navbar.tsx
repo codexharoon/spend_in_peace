@@ -26,8 +26,9 @@ export default function Navbar() {
         <div className="hidden md:flex items-center space-x-8">
           <Link href="/features" className="text-gray-300 hover:text-white transition-colors">Features</Link>
           <Link href="/how-it-works" className="text-gray-300 hover:text-white transition-colors">How it Works</Link>
-          <Link href="/examples" className="text-gray-300 hover:text-white transition-colors">Examples</Link>
-          <Link href="/pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</Link>
+          <Link href="/team" className="text-gray-300 hover:text-white transition-colors">Team</Link>
+          <Link href="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link>
+          <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">Contact Us</Link>
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
