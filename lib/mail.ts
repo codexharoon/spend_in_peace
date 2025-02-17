@@ -8,6 +8,8 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+
+
 export async function sendVerificationEmail(email: string, verificationCode: string) {
   const mailOptions = {
     from: process.env.EMAIL_USER,
@@ -49,3 +51,51 @@ export async function sendResetPasswordEmail(email: string, resetCode: string) {
       throw new Error('Failed to send reset email');
     }
   }
+
+  const developmentTeamEmail = process.env.DEV_TEAM_EMAIL;
+  /** ✅ Send Feedback Email to Development Team */
+export async function sendFeedbackToDevTeam(name: string, email: string, message: string) {
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: developmentTeamEmail,
+    subject: "New Feedback Received",
+    html: `
+      <h1>New Feedback Received</h1>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Message:</strong></p>
+      <p>${message}</p>
+    `,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+  } catch (error) {
+    console.error("Error sending feedback to dev team:", error);
+    throw new Error("Failed to send feedback email to dev team");
+  }
+}
+
+/** ✅ Send Confirmation Email to User */
+export async function sendFeedbackConfirmationToUser(name: string, email: string) {
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: email,
+    subject: "Feedback Received - Spend In Peace Team",
+    html: `
+      <h1>Feedback Received</h1>
+      <p>Dear ${name},</p>
+      <p>Thank you for your feedback! Your message has been received by the Spend in Peace Team.</p>
+      <p>We appreciate your time and will review your comments.</p>
+      <p>Best Regards,</p>
+      <p>Spend in Peace Team</p>
+    `,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+  } catch (error) {
+    console.error("Error sending feedback confirmation to user:", error);
+    throw new Error("Failed to send feedback confirmation email");
+  }
+}

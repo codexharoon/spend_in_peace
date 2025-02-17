@@ -4,6 +4,7 @@ import Features from "@/components/features"
 import CTA from "@/components/cta"
 import Footer from "@/components/footer"
 import GradientBackground from "@/components/gradient-background"
+import ContactUs from "../components/Contact"
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <Features />
         <CTA />
+        <ContactUs/>
         <Footer />
       </div>
     </div>
